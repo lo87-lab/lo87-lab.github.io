@@ -1,8 +1,287 @@
-<html>
-    <head>
-     <title>welcome</title>
-    </head>
-    <body>
-     <h1><center>Welcome</center></h1>
-    </body>
-    </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lhea Osorio | Engineering Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #211f1a;
+            color: #e8dcc2;
+            font-family: Georgia, "Times New Roman", serif;
+            min-height: 100vh;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 65px 22px 80px;
+            position: relative;
+            overflow: hidden;
+
+            background-color: #292720;
+            background-image:
+                linear-gradient(
+                    rgba(193, 169, 120, 0.07) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(193, 169, 120, 0.07) 1px,
+                    transparent 1px
+                );
+            background-size: 30px 30px;
+        }
+
+        .frame {
+            position: absolute;
+            inset: 18px;
+            border: 1px solid #82714d;
+            pointer-events: none;
+        }
+
+        .frame::before,
+        .frame::after {
+            content: "✦";
+            position: absolute;
+            color: #b79a60;
+            font-size: 20px;
+        }
+
+        .frame::before {
+            top: -12px;
+            left: -9px;
+        }
+
+        .frame::after {
+            bottom: -12px;
+            right: -9px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .label {
+            color: #c5ab76;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+        }
+
+        .ornament {
+            color: #c5ab76;
+            font-size: 45px;
+            margin-bottom: 14px;
+        }
+
+        .welcome {
+            font-size: 20px;
+            font-style: italic;
+            color: #c5ab76;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            font-weight: normal;
+            line-height: 1.15;
+            color: #f1e7d3;
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: #c5ab76;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 25px auto;
+            color: #b79a60;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            width: 75px;
+            height: 1px;
+            background: #82714d;
+        }
+
+        .intro {
+            max-width: 690px;
+            margin: 0 auto 45px;
+            font-size: clamp(17px, 2.5vw, 21px);
+            line-height: 1.9;
+            color: #d0c5af;
+        }
+
+        .highlights {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .highlight {
+            flex: 1 1 200px;
+            max-width: 270px;
+            padding: 25px 18px;
+            border-right: 1px solid #62573e;
+        }
+
+        .highlight:last-child {
+            border-right: none;
+        }
+
+        .icon {
+            font-size: 32px;
+            color: #c5ab76;
+            margin-bottom: 16px;
+        }
+
+        .highlight h2 {
+            color: #e8dcc2;
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 12px;
+        }
+
+        .highlight p {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #b7ad9a;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer {
+            margin-top: 45px;
+            color: #9d8c68;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 60px 25px;
+            }
+
+            .frame {
+                inset: 10px;
+            }
+
+            .label {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .highlights {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .highlight {
+                width: 100%;
+                max-width: 320px;
+                border-right: none;
+                border-bottom: 1px solid #62573e;
+            }
+
+            .highlight:last-child {
+                border-bottom: none;
+            }
+
+            .footer {
+                line-height: 1.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="hero">
+
+        <div class="frame" aria-hidden="true"></div>
+
+        <div class="content">
+
+            <p class="label">
+                Personal Portfolio · Est. 2026
+            </p>
+
+            <div class="ornament" aria-hidden="true">⚙</div>
+
+            <p class="welcome">Welcome to my portfolio</p>
+
+            <h1>
+                Lhea <span>Osorio</span>
+            </h1>
+
+            <div class="divider" aria-hidden="true">✧</div>
+
+            <p class="intro">
+                I am pursuing a bachelor's degree in Mechanical
+                Engineering Technology, with an interest in
+                engineering, design, and innovation.
+            </p>
+
+            <section class="highlights"
+                     aria-label="Education and interests">
+
+                <div class="highlight">
+                    <div class="icon" aria-hidden="true">⚙</div>
+                    <h2>Mechanical Engineering</h2>
+                    <p>
+                        Exploring mechanical systems,
+                        design, and how things work.
+                    </p>
+                </div>
+
+                <div class="highlight">
+                    <div class="icon" aria-hidden="true">✧</div>
+                    <h2>Bachelor's Degree</h2>
+                    <p>
+                        Studying Mechanical Engineering
+                        Technology.
+                    </p>
+                </div>
+
+                <div class="highlight">
+                    <div class="icon" aria-hidden="true">⌘</div>
+                    <h2>Design & Innovation</h2>
+                    <p>
+                        Building knowledge through
+                        creativity and problem-solving.
+                    </p>
+                </div>
+
+            </section>
+
+            <p class="footer">
+                Engineering · Craft · Innovation
+            </p>
+
+        </div>
+    </main>
+</body>
+</html>
