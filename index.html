@@ -2,930 +2,526 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Lhea Osorio's engineering portfolio, featuring mechanical engineering studies, CAD experience, and a product design capstone project.">
-
-    <title>Lhea Osorio | Engineering Portfolio</title>
-
-    <style>
-        :root {
-            --background: #171a1c;
-            --surface: #202528;
-            --surface-light: #2a3033;
-            --text: #eee9df;
-            --muted: #b7b8b3;
-            --accent: #c3a36b;
-            --border: #42494b;
-            --max-width: 1080px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-            margin: 0;
-            background: var(--background);
-            color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        a:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 5px;
-        }
-
-        .container {
-            width: min(100% - 40px, var(--max-width));
-            margin-inline: auto;
-        }
-
-        .eyebrow {
-            color: var(--accent);
-            font-size: 0.76rem;
-            font-weight: 700;
-            letter-spacing: 0.17em;
-            text-transform: uppercase;
-        }
-
-        .section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-heading {
-            margin: 0 0 12px;
-            font-size: clamp(1.9rem, 4vw, 2.6rem);
-            line-height: 1.2;
-        }
-
-        .section-intro {
-            max-width: 700px;
-            margin: 0 0 32px;
-            color: var(--muted);
-        }
-
-        /* Navigation */
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: rgba(23, 26, 28, 0.97);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav {
-            min-height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-
-        .brand {
-            text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            white-space: nowrap;
-        }
-
-        .brand span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: 0.86rem;
-            text-decoration: none;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero */
-
-        .hero {
-            min-height: 480px;
-            display: flex;
-            align-items: center;
-            padding: 85px 0;
-            background-image:
-                linear-gradient(
-                    rgba(195, 163, 107, 0.045) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(195, 163, 107, 0.045) 1px,
-                    transparent 1px
-                );
-            background-size: 36px 36px;
-        }
-
-        .hero-content {
-            max-width: 790px;
-        }
-
-        .hero h1 {
-            margin: 12px 0 20px;
-            font-size: clamp(2.8rem, 8vw, 5.3rem);
-            letter-spacing: -0.055em;
-            line-height: 1.05;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero-description {
-            max-width: 660px;
-            margin: 0;
-            color: var(--muted);
-            font-size: clamp(1rem, 2vw, 1.15rem);
-        }
-
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 28px;
-        }
-
-        .meta-item {
-            padding: 7px 12px;
-            border: 1px solid var(--border);
-            background: rgba(32, 37, 40, 0.9);
-            font-size: 0.82rem;
-        }
-
-        .hero-button {
-            display: inline-block;
-            margin-top: 28px;
-            padding: 11px 18px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: background-color 0.2s, color 0.2s;
-        }
-
-        .hero-button:hover {
-            background: var(--accent);
-            color: var(--background);
-        }
-
-        /* About */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 0.8fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .about-copy p {
-            margin-top: 0;
-            color: var(--muted);
-        }
-
-        .about-copy strong {
-            color: var(--text);
-        }
-
-        .info-panel {
-            padding: 24px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-top: 3px solid var(--accent);
-        }
-
-        .info-panel h3 {
-            margin: 0 0 15px;
-        }
-
-        .info-row {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .info-row:last-child {
-            border-bottom: none;
-        }
-
-        .info-label {
-            display: block;
-            margin-bottom: 3px;
-            color: var(--accent);
-            font-size: 0.73rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .info-value {
-            font-size: 0.92rem;
-        }
-
-        /* Skills */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .skill-card {
-            min-height: 110px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 18px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            transition: border-color 0.2s, transform 0.2s;
-        }
-
-        .skill-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .skill-number {
-            color: var(--accent);
-            font-size: 0.74rem;
-            letter-spacing: 0.08em;
-        }
-
-        .skill-name {
-            margin-top: 14px;
-            font-size: 0.92rem;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        .skills-note {
-            margin-top: 20px;
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        /* Software */
-
-        .software-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .software-card {
-            padding: 22px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-        }
-
-        .software-card h3 {
-            margin: 0 0 8px;
-            color: var(--accent);
-            font-size: 1.05rem;
-        }
-
-        .software-card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.91rem;
-        }
-
-        .software-status {
-            display: inline-block;
-            margin-top: 16px;
-            padding: 4px 9px;
-            border: 1px solid var(--border);
-            color: var(--text);
-            font-size: 0.75rem;
-        }
-
-        /* Projects */
-
-        .project-card {
-            overflow: hidden;
-            background: var(--surface);
-            border: 1px solid var(--border);
-        }
-
-        .project-header {
-            padding: 27px;
-            background: var(--surface-light);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .project-label {
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-        }
-
-        .project-header h3 {
-            margin: 8px 0;
-            font-size: clamp(1.6rem, 4vw, 2.1rem);
-        }
-
-        .project-header p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        .project-body {
-            padding: 27px;
-        }
-
-        .project-body > p {
-            margin-top: 0;
-            color: var(--muted);
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 28px;
-        }
-
-        .process-item {
-            padding: 18px;
-            background: var(--background);
-            border-left: 2px solid var(--accent);
-        }
-
-        .process-item h4 {
-            margin: 0 0 8px;
-            font-size: 0.98rem;
-        }
-
-        .process-item p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .project-takeaway {
-            margin-top: 26px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .project-takeaway h4 {
-            margin: 0 0 8px;
-            color: var(--accent);
-        }
-
-        .project-takeaway p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        /* Education and interests */
-
-        .background-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-        }
-
-        .background-card {
-            padding: 25px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-        }
-
-        .background-card h3 {
-            margin: 0 0 12px;
-            font-size: 1.15rem;
-        }
-
-        .background-card p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        /* Footer */
-
-        .site-footer {
-            padding: 27px 0;
-            color: var(--muted);
-            font-size: 0.82rem;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .site-footer p {
-            margin: 0;
-        }
-
-        /* Responsive layout */
-
-        @media (max-width: 760px) {
-            .nav {
-                align-items: flex-start;
-                flex-direction: column;
-                justify-content: center;
-                padding: 14px 0;
-                gap: 10px;
-            }
-
-            .nav-links {
-                justify-content: flex-start;
-                gap: 10px 17px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .software-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 62px 0;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 72px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                width: min(100% - 30px, var(--max-width));
-            }
-
-            .process-grid,
-            .background-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-header,
-            .project-body {
-                padding: 20px;
-            }
-
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                transition: none !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lhea Osorio | Engineering Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #101315;
+      --panel: #1b2022;
+      --line: #394346;
+      --text: #e9e6dc;
+      --muted: #aeb8b7;
+      --accent: #c3a36a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .12;
+      pointer-events: none;
+      background-image:
+        linear-gradient(#71808022 1px, transparent 1px),
+        linear-gradient(90deg, #71808022 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    .wrap {
+      width: min(1050px, 92%);
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #101315f2;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      color: var(--accent);
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font: .85rem Arial, sans-serif;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      padding: 85px 0 65px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow, .number, .meta {
+      color: var(--accent);
+      font: .78rem Arial, sans-serif;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: clamp(3rem, 9vw, 6rem);
+      line-height: 1;
+      font-weight: normal;
+    }
+
+    .rule {
+      width: 100px;
+      height: 3px;
+      background: var(--accent);
+      margin: 28px 0;
+    }
+
+    .hero p {
+      max-width: 680px;
+      font-size: 1.15rem;
+    }
+
+    section {
+      padding: 55px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: normal;
+    }
+
+    h3 {
+      color: var(--accent);
+      font-weight: normal;
+      margin-top: 0;
+    }
+
+    p { color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .callout {
+      padding: 18px 22px;
+      margin: 24px 0;
+      background: var(--panel);
+      border-left: 3px solid var(--accent);
+    }
+
+    .callout p:last-child { margin-bottom: 0; }
+
+    .step {
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .step h3 {
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .step p { margin-bottom: 0; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .photo-placeholder {
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      background: #22292b;
+      border: 1px dashed #687373;
+    }
+
+    .gallery figure {
+      margin: 0;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .gallery figcaption { padding: 14px; }
+
+    .gallery figcaption p {
+      margin-bottom: 0;
+      font-size: .9rem;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 650px) {
+      .grid, .gallery { grid-template-columns: 1fr; }
+      .hero { padding: 60px 0 45px; }
+      section { padding: 42px 0; }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header class="site-header">
-        <nav class="nav container" aria-label="Main navigation">
-            <a class="brand" href="#home">
-                LO<span>.</span> ENGINEERING
-            </a>
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">Lhea Osorio · Portfolio</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#project">Capstone</a>
+      <a href="#process">Process</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#education">Education</a>
+    </div>
+  </div>
+</nav>
 
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#software">Software</a>
-                <a href="#projects">Projects</a>
-                <a href="#background">Background</a>
-            </div>
-        </nav>
-    </header>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Mechanical Engineering Technology</div>
+    <h1>Lhea<br>Osorio</h1>
+    <div class="rule"></div>
+    <p>
+      Interested in mechanical design and engineering, with a hands-on
+      approach to learning, solving problems, and developing ideas.
+    </p>
+    <div class="meta">Design · Prototyping · Problem Solving</div>
+  </div>
+</header>
 
-    <main>
+<section id="about">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">01 /</span><h2>About Me</h2>
+    </div>
+    <p>
+      I am currently pursuing a bachelor's degree in Mechanical Engineering
+      Technology and continuing to develop my skills in design and engineering.
+      I enjoy learning new things, working through challenges, and putting
+      effort into completing tasks carefully.
+    </p>
+    <p>
+      My high school engineering classes introduced me to design projects,
+      research, technical drawings, and prototyping. Outside of school,
+      I work at QuickChek, draw in my free time, and work out when I can.
+    </p>
+  </div>
+</section>
 
-        <!-- Introduction -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">02 /</span><h2>Skills & Interests</h2>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>Design & Creativity</h3>
+        <p>Mechanical design, concept sketches, technical drawing, and CAD.</p>
+      </article>
+      <article class="card">
+        <h3>Hands-on Engineering</h3>
+        <p>Prototyping, material selection, and understanding how parts fit together.</p>
+      </article>
+      <article class="card">
+        <h3>STEM Foundations</h3>
+        <p>Programming, mathematics, physics, research, and problem-solving.</p>
+      </article>
+      <article class="card">
+        <h3>Teamwork</h3>
+        <p>Communication, collaboration, accepting feedback, and adapting ideas.</p>
+      </article>
+    </div>
 
-        <section class="hero" id="home">
-            <div class="container hero-content">
-                <p class="eyebrow">Personal Engineering Portfolio</p>
+    <div class="callout">
+      <p>
+        These are areas I have explored or am continuing to develop,
+        rather than a claim of professional-level proficiency.
+      </p>
+    </div>
 
-                <h1>Lhea <span>Osorio</span></h1>
+    <h3>Software</h3>
+    <p>
+      I have the most experience using Onshape, with some experience in
+      Fusion 360 and continued learning in CAD.
+    </p>
+  </div>
+</section>
 
-                <p class="hero-description">
-                    A Mechanical Engineering Technology student interested
-                    in mechanical design, practical problem-solving, and
-                    developing ideas through research and hands-on work.
-                </p>
+<section id="project">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">03 /</span><h2>The Study Box</h2>
+    </div>
+    <div class="meta">High School Engineering Capstone · Team Project</div>
 
-                <div class="hero-meta">
-                    <span class="meta-item">
-                        Mechanical Engineering Technology
-                    </span>
+    <p>
+      The Study Box was a year-long senior capstone project created with
+      Cristal Escalante and Samuel Ramnauth. Our team explored how phone
+      distractions and difficulty managing study time can affect students.
+      We developed a concept for a lockable phone box designed to encourage
+      more focused study sessions.
+    </p>
 
-                    <span class="meta-item">
-                        Product Design &amp; Problem-Solving
-                    </span>
-                </div>
+    <div class="grid">
+      <article class="card">
+        <h3>The Problem</h3>
+        <p>
+          Phones and other distractions can make it difficult to begin
+          studying, manage time, and stay focused on schoolwork.
+        </p>
+      </article>
+      <article class="card">
+        <h3>The Proposed Solution</h3>
+        <p>
+          A lockable phone compartment paired with a visual timer using
+          25-minute study sessions and 5-minute breaks.
+        </p>
+      </article>
+    </div>
 
-                <a class="hero-button" href="#projects">
-                    Explore My Projects &darr;
-                </a>
-            </div>
-        </section>
+    <div class="callout">
+      <p>
+        <strong style="color:var(--text)">My contribution:</strong>
+        I worked on concept art and helped create a physical prototype
+        as part of the team. The research, feature planning, and proposed
+        electronic system were developed collaboratively.
+      </p>
+    </div>
+  </div>
+</section>
 
-        <!-- About -->
+<section id="process">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">04 /</span><h2>Engineering Process</h2>
+    </div>
 
-        <section class="section" id="about">
-            <div class="container">
-                <p class="eyebrow">01 / Introduction</p>
-                <h2 class="section-heading">About Me</h2>
+    <div class="step">
+      <div class="meta">01 · Research</div>
+      <h3>Understanding the Problem</h3>
+      <p>
+        We researched study habits, phone distractions, time management,
+        and executive-function skills such as task initiation and sustained
+        attention. Our presentation reported surveys involving 107 students
+        and 117 adults to gather student and parent perspectives.
+      </p>
+    </div>
 
-                <div class="about-grid">
-                    <div class="about-copy">
-                        <p>
-                            I am currently pursuing a bachelor's degree in
-                            Mechanical Engineering Technology, with an
-                            interest in mechanical design and engineering.
-                            I am determined to put in the work needed to
-                            complete tasks thoroughly, and I enjoy learning
-                            new things even when the process is challenging.
-                        </p>
+    <div class="step">
+      <div class="meta">02 · Market Research</div>
+      <h3>Comparing Existing Products</h3>
+      <p>
+        We examined similar study products and compared their features
+        with our idea. This helped us identify the features we wanted
+        to combine, including a visual timer and a lockable phone compartment.
+      </p>
+    </div>
 
-                        <p>
-                            My high school experience included engineering
-                            classes from freshman through senior year,
-                            AP courses, and a year-long senior capstone
-                            through a STEM program. That project introduced
-                            me to researching a problem, reviewing existing
-                            solutions, developing a product concept, building
-                            a prototype, and presenting our work for feedback.
-                        </p>
+    <div class="step">
+      <div class="meta">03 · Concept Development</div>
+      <h3>Combining Design Ideas</h3>
+      <p>
+        We compared our team members' sketches using a design matrix and
+        combined features from different ideas into one concept. I contributed
+        concept art while the team continued refining the design.
+      </p>
+    </div>
 
-                        <p>
-                            I have gained experience with Onshape, some
-                            Fusion 360, and CAD. I am continuing to develop
-                            my technical skills while learning more about
-                            the design process and mechanical engineering.
-                        </p>
+    <div class="step">
+      <div class="meta">04 · Materials</div>
+      <h3>Choosing Suitable Materials</h3>
+      <p>
+        Our material research considered polycarbonate for the enclosure
+        and stainless steel for components such as springs and hinges.
+        We considered durability, heat resistance, cost, and repeated use.
+      </p>
+    </div>
 
-                        <p>
-                            Outside of school, I work at QuickChek, work
-                            out when I can, and enjoy drawing in my free
-                            time. I value opportunities to learn, improve,
-                            and take on new challenges.
-                        </p>
-                    </div>
+    <div class="step">
+      <div class="meta">05 · Technical Design</div>
+      <h3>Planning the Components</h3>
+      <p>
+        The proposed system included a Raspberry Pi 5, a screen, status
+        lights, buttons, a camera, and a servo-based latch. Technical
+        drawings helped communicate the case, door, camera housing,
+        and latch mechanism.
+      </p>
+    </div>
 
-                    <aside class="info-panel"
-                           aria-label="Professional overview">
-                        <h3>At a Glance</h3>
+    <div class="step">
+      <div class="meta">06 · Prototype</div>
+      <h3>Turning an Idea Into a Physical Model</h3>
+      <p>
+        We developed concept drawings and a physical prototype. This
+        involved considering component placement, openings, dimensions,
+        fit, tolerances, and how different parts could work together.
+      </p>
+    </div>
 
-                        <div class="info-row">
-                            <span class="info-label">Education</span>
-                            <span class="info-value">
-                                Bachelor's Degree in Progress
-                            </span>
-                        </div>
+    <div class="step">
+      <div class="meta">07 · Feedback</div>
+      <h3>Improving the Concept</h3>
+      <p>
+        After presenting the project, we considered feedback and explored
+        changing the camera from a rectilinear lens to a fisheye lens
+        to capture a wider view. The project taught me the importance
+        of communication, organization, and adapting ideas.
+      </p>
+    </div>
 
-                        <div class="info-row">
-                            <span class="info-label">Field</span>
-                            <span class="info-value">
-                                Mechanical Engineering Technology
-                            </span>
-                        </div>
+    <div class="callout">
+      <p>
+        Some features were part of the proposed design and system plan.
+        They should not be understood as proof that every feature was
+        fully built or tested in the final prototype.
+      </p>
+    </div>
+  </div>
+</section>
 
-                        <div class="info-row">
-                            <span class="info-label">Primary Interest</span>
-                            <span class="info-value">
-                                Mechanical Design
-                            </span>
-                        </div>
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">05 /</span><h2>Project Gallery</h2>
+    </div>
+    <p>
+      Add photos and diagrams from your capstone presentation here.
+      Upload each image to your GitHub repository, then replace a
+      placeholder below with an image tag.
+    </p>
 
-                        <div class="info-row">
-                            <span class="info-label">Project Experience</span>
-                            <span class="info-value">
-                                Product Concept &amp; Physical Prototype
-                            </span>
-                        </div>
+    <div class="gallery">
+      <figure>
+        <div class="photo-placeholder">Add your physical prototype photo</div>
+        <figcaption>
+          <h3>Physical Prototype</h3>
+          <p>The physical model developed by our team.</p>
+        </figcaption>
+      </figure>
 
-                        <div class="info-row">
-                            <span class="info-label">Personal Interests</span>
-                            <span class="info-value">
-                                Drawing, Fitness, and Learning
-                            </span>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </section>
+      <figure>
+        <div class="photo-placeholder">Add your concept sketch</div>
+        <figcaption>
+          <h3>Concept Art</h3>
+          <p>Early ideas used to explore the product's shape and features.</p>
+        </figcaption>
+      </figure>
 
-        <!-- Skills -->
+      <figure>
+        <div class="photo-placeholder">Add a technical drawing</div>
+        <figcaption>
+          <h3>Technical Drawings</h3>
+          <p>Drawings used to communicate the shape and components.</p>
+        </figcaption>
+      </figure>
 
-        <section class="section" id="skills">
-            <div class="container">
-                <p class="eyebrow">02 / Capabilities</p>
-                <h2 class="section-heading">Skills &amp; Interests</h2>
+      <figure>
+        <div class="photo-placeholder">Add your wiring or system diagram</div>
+        <figcaption>
+          <h3>System Planning</h3>
+          <p>Plans for the proposed electronic and locking system.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
-                <p class="section-intro">
-                    Areas connected to my engineering studies, creative
-                    interests, and continued development.
-                </p>
+<section id="education">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">06 /</span><h2>Education & Next Steps</h2>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>Education</h3>
+        <p>
+          I took engineering classes throughout high school, from freshman
+          through senior year, alongside AP coursework. I am now pursuing
+          a bachelor's degree in Mechanical Engineering Technology.
+        </p>
+      </article>
+      <article class="card">
+        <h3>What I Learned</h3>
+        <p>
+          The Study Box showed me that engineering involves more than
+          an initial idea. It requires research, design decisions,
+          material considerations, collaboration, and improvement
+          through feedback.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
 
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <span class="skill-number">01</span>
-                        <span class="skill-name">Problem-Solving</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <span class="skill-number">02</span>
-                        <span class="skill-name">Design &amp; Creativity</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <span class="skill-number">03</span>
-                        <span class="skill-name">CAD &amp; 3D Modeling</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <span class="skill-number">04</span>
-                        <span class="skill-name">Technical Drawing</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <span class="skill-number">05</span>
-                        <span class="skill-name">Programming</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <span class="skill-number">06</span>
-                        <span class="skill-name">
-                            Teamwork &amp; Communication
-                        </span>
-                    </div>
-
-                    <div class="skill-card">
-                        <span class="skill-number">07</span>
-                        <span class="skill-name">
-                            Building &amp; Prototyping
-                        </span>
-                    </div>
-
-                    <div class="skill-card">
-                        <span class="skill-number">08</span>
-                        <span class="skill-name">
-                            Mathematics &amp; Physics
-                        </span>
-                    </div>
-                </div>
-
-                <p class="skills-note">
-                    This section reflects areas of interest and development,
-                    not a claim of professional-level proficiency.
-                </p>
-            </div>
-        </section>
-
-        <!-- Software experience -->
-
-        <section class="section" id="software">
-            <div class="container">
-                <p class="eyebrow">03 / Technical Tools</p>
-                <h2 class="section-heading">Software &amp; CAD</h2>
-
-                <p class="section-intro">
-                    My current experience with design tools, with room
-                    to expand this section as I gain more practice.
-                </p>
-
-                <div class="software-grid">
-                    <article class="software-card">
-                        <h3>Onshape</h3>
-                        <p>
-                            My main area of experience among the CAD tools
-                            I have used, with further opportunities to
-                            develop my modeling skills.
-                        </p>
-                        <span class="software-status">
-                            More experience
-                        </span>
-                    </article>
-
-                    <article class="software-card">
-                        <h3>Fusion 360</h3>
-                        <p>
-                            Some experience using Fusion 360, with room
-                            to continue learning its design tools and
-                            workflows.
-                        </p>
-                        <span class="software-status">
-                            Some experience
-                        </span>
-                    </article>
-
-                    <article class="software-card">
-                        <h3>CAD</h3>
-                        <p>
-                            Familiarity with computer-aided design as part
-                            of my interest in mechanical design and
-                            engineering.
-                        </p>
-                        <span class="software-status">
-                            Developing skills
-                        </span>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured project -->
-
-        <section class="section" id="projects">
-            <div class="container">
-                <p class="eyebrow">04 / Selected Work</p>
-                <h2 class="section-heading">Engineering Projects</h2>
-
-                <p class="section-intro">
-                    A high school capstone that introduced me to research,
-                    product design, prototyping, and presenting ideas.
-                </p>
-
-                <article class="project-card">
-                    <div class="project-header">
-                        <span class="project-label">
-                            High School Senior Capstone
-                        </span>
-
-                        <h3>The Study Box</h3>
-
-                        <p>
-                            A phone-locking box concept designed to help
-                            reduce distractions during study sessions.
-                        </p>
-                    </div>
-
-                    <div class="project-body">
-                        <p>
-                            During my senior year in a STEM program, my
-                            group completed a year-long capstone focused
-                            on identifying a problem and developing a
-                            product concept to address it. We named our
-                            project the Study Box, a box designed to lock
-                            away a phone during designated study periods.
-                            Our idea was informed by research into study
-                            habits, studying methods, and time management.
-                        </p>
-
-                        <p>
-                            We researched the problem and existing products,
-                            explored possible ideas, and presented our
-                            findings to other groups to receive feedback.
-                            After selecting our concept, we created
-                            concept art, considered suitable materials,
-                            and developed a physical prototype.
-                        </p>
-
-                        <div class="process-grid">
-                            <div class="process-item">
-                                <h4>01. Research</h4>
-                                <p>
-                                    Investigated the problem, reviewed
-                                    similar ideas and products, and
-                                    considered possible ways to address
-                                    phone distractions during studying.
-                                </p>
-                            </div>
-
-                            <div class="process-item">
-                                <h4>02. Concept Development</h4>
-                                <p>
-                                    Worked as a group to select the
-                                    Study Box idea and develop a concept
-                                    focused on designated study periods.
-                                </p>
-                            </div>
-
-                            <div class="process-item">
-                                <h4>03. Design &amp; Prototyping</h4>
-                                <p>
-                                    Created concept art, reviewed design
-                                    critiques, considered materials, and
-                                    built a physical prototype of the idea.
-                                </p>
-                            </div>
-
-                            <div class="process-item">
-                                <h4>04. Presentation &amp; Feedback</h4>
-                                <p>
-                                    Presented our research and findings
-                                    to other groups, received feedback,
-                                    and considered different perspectives
-                                    on the proposed product.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="project-takeaway">
-                            <h4>What I Learned</h4>
-                            <p>
-                                This project gave me experience working
-                                through an extended design process,
-                                researching existing solutions, developing
-                                a product concept, considering materials,
-                                building a prototype, collaborating with
-                                a team, and presenting our work for critique.
-                                It helped me understand the effort involved
-                                in taking an idea from research through
-                                design and prototyping.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Education and interests -->
-
-        <section class="section" id="background">
-            <div class="container">
-                <p class="eyebrow">05 / Background</p>
-                <h2 class="section-heading">Education &amp; Beyond</h2>
-
-                <p class="section-intro">
-                    My background reflects an ongoing interest in
-                    engineering, creativity, and personal growth.
-                </p>
-
-                <div class="background-grid">
-                    <article class="background-card">
-                        <h3>Education</h3>
-                        <p>
-                            Currently pursuing a bachelor's degree in
-                            Mechanical Engineering Technology. My high
-                            school background included engineering classes
-                            from freshman through senior year, AP courses,
-                            and a year-long capstone project in a STEM
-                            program.
-                        </p>
-                    </article>
-
-                    <article class="background-card">
-                        <h3>Beyond Engineering</h3>
-                        <p>
-                            I currently work at QuickChek, enjoy drawing
-                            in my free time, and work out when my schedule
-                            allows. I value opportunities to learn, improve,
-                            and take on new challenges.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-content">
-            <p>&copy; 2026 Lhea Osorio</p>
-            <p>Personal Portfolio | Mechanical Engineering Technology</p>
-        </div>
-    </footer>
+<footer>
+  <div class="wrap">
+    © 2026 Lhea Osorio · Mechanical Engineering Technology
+  </div>
+</footer>
 
 </body>
 </html>
