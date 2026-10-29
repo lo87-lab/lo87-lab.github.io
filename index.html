@@ -2,774 +2,741 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lhea Osorio | Engineering Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101315">
+<title>Lhea Osorio | Engineering Portfolio</title>
 
-  <style>
-    :root {
-      --bg: #101315;
-      --panel: #1b2022;
-      --line: #394346;
-      --text: #e9e6dc;
-      --muted: #aeb8b7;
-      --accent: #c3a36a;
-    }
+<style>
+:root {
+  --bg: #101315;
+  --panel: #1b2022;
+  --line: #394346;
+  --text: #e9e6dc;
+  --muted: #b0b9b8;
+  --accent: #c3a36a;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+* { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.7;
-    }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      opacity: 0.12;
-      pointer-events: none;
-      background-image:
-        linear-gradient(#71808022 1px, transparent 1px),
-        linear-gradient(90deg, #71808022 1px, transparent 1px);
-      background-size: 34px 34px;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: .12;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#71808022 1px, transparent 1px),
+    linear-gradient(90deg, #71808022 1px, transparent 1px);
+  background-size: 34px 34px;
+}
 
-    .wrap {
-      width: min(1050px, 92%);
-      margin: auto;
-    }
+img { max-width: 100%; }
+a { color: var(--accent); }
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: #101315f2;
-      border-bottom: 1px solid var(--line);
-    }
+.wrap {
+  width: min(1100px, 92%);
+  margin: auto;
+}
 
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 16px 0;
-    }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #101315f5;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
 
-    .brand {
-      color: var(--accent);
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 13px 0;
+}
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
+.brand {
+  color: var(--accent);
+  font: .78rem Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
 
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font: 0.85rem Arial, sans-serif;
-    }
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
 
-    .nav-links a:hover {
-      color: var(--accent);
-    }
+.nav-links a {
+  padding: 7px 9px;
+  color: var(--muted);
+  text-decoration: none;
+  font: .78rem Arial, sans-serif;
+  border: 1px solid transparent;
+}
 
-    a {
-      color: var(--accent);
-    }
+.nav-links a:hover {
+  color: var(--accent);
+  border-color: var(--line);
+  background: var(--panel);
+}
 
-    .hero {
-      padding: 85px 0 65px;
-      border-bottom: 1px solid var(--line);
-    }
+.hero {
+  padding: 85px 0 65px;
+  border-bottom: 1px solid var(--line);
+}
 
-    .eyebrow,
-    .number,
-    .meta {
-      color: var(--accent);
-      font: 0.78rem Arial, sans-serif;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
+.eyebrow, .number, .meta {
+  color: var(--accent);
+  font: .76rem Arial, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
 
-    h1 {
-      margin: 20px 0;
-      font-size: clamp(3rem, 9vw, 6rem);
-      line-height: 1;
-      font-weight: normal;
-    }
+h1 {
+  margin: 20px 0;
+  font-size: clamp(3.4rem, 10vw, 7rem);
+  line-height: .98;
+  font-weight: normal;
+}
 
-    .rule {
-      width: 100px;
-      height: 3px;
-      background: var(--accent);
-      margin: 28px 0;
-    }
+.rule {
+  width: 95px;
+  height: 3px;
+  background: var(--accent);
+  margin: 28px 0;
+}
 
-    .hero p {
-      max-width: 680px;
-      font-size: 1.15rem;
-    }
+.hero p {
+  max-width: 680px;
+  font-size: 1.15rem;
+}
 
-    section {
-      padding: 55px 0;
-      border-bottom: 1px solid var(--line);
-      scroll-margin-top: 75px;
-    }
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+}
 
-    .section-title {
-      display: flex;
-      gap: 14px;
-      align-items: baseline;
-      margin-bottom: 25px;
-    }
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font: .8rem Arial, sans-serif;
+}
 
-    h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      font-weight: normal;
-    }
+.button.primary {
+  background: var(--accent);
+  color: #101315;
+}
 
-    h3 {
-      color: var(--accent);
-      font-weight: normal;
-      margin-top: 0;
-    }
+section {
+  padding: 58px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
 
-    p {
-      color: var(--muted);
-    }
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 24px;
+}
 
-    strong {
-      color: var(--text);
-    }
+h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.7rem);
+  font-weight: normal;
+  line-height: 1.2;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
+h3 {
+  margin: 0 0 9px;
+  color: var(--accent);
+  font-weight: normal;
+  line-height: 1.35;
+}
 
-    .card {
-      padding: 22px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      min-width: 0;
-    }
+p { color: var(--muted); }
+strong { color: var(--text); }
 
-    .card p:last-child {
-      margin-bottom: 0;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
 
-    .callout {
-      padding: 18px 22px;
-      margin: 24px 0;
-      background: var(--panel);
-      border-left: 3px solid var(--accent);
-    }
+.card {
+  min-width: 0;
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
 
-    .callout p:last-child {
-      margin-bottom: 0;
-    }
+.card p:last-child { margin-bottom: 0; }
 
-    .step {
-      padding: 22px 0;
-      border-top: 1px solid var(--line);
-    }
+.callout {
+  margin: 24px 0;
+  padding: 18px 22px;
+  background: var(--panel);
+  border-left: 3px solid var(--accent);
+}
 
-    .step h3 {
-      color: var(--text);
-      margin-bottom: 6px;
-    }
+.callout p:last-child { margin-bottom: 0; }
 
-    .step p {
-      margin-bottom: 0;
-    }
+.step {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  gap: 18px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
 
-    /* Combined project image */
-    .combined-gallery {
-      margin: 24px 0;
-      background: var(--panel);
-      border: 1px solid var(--accent);
-      overflow: hidden;
-    }
+.step-label {
+  color: var(--accent);
+  font: .76rem Arial, sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
 
-    .combined-gallery img {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 650px;
-      object-fit: contain;
-      background: #22292b;
-    }
+.step h3 { color: var(--text); }
+.step p { margin-bottom: 0; }
 
-    .combined-gallery figcaption {
-      padding: 18px 22px;
-      border-top: 1px solid var(--line);
-    }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
 
-    .combined-gallery figcaption h3 {
-      margin-bottom: 8px;
-    }
+.image-card {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
 
-    .combined-gallery figcaption p {
-      margin-bottom: 0;
-    }
+.image-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: #e8e8e4;
+}
 
-    /* Individual image descriptions below the combined image */
-    .gallery-descriptions {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
+.image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
+  object-position: center;
+}
 
-    .gallery-descriptions .card {
-      min-width: 0;
-    }
+.image-card figcaption {
+  padding: 18px;
+}
 
-    .image-note {
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      background: #171c1e;
-      color: var(--muted);
-      font: 0.9rem Arial, sans-serif;
-      margin: 18px 0 24px;
-    }
+.image-card figcaption p {
+  margin-bottom: 0;
+  font-size: .94rem;
+}
 
-    footer {
-      padding: 28px 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
+.wide { grid-column: 1 / -1; }
 
-    @media (max-width: 650px) {
-      .grid,
-      .gallery-descriptions {
-        grid-template-columns: 1fr;
-      }
+.image-note {
+  margin: 18px 0;
+  padding: 14px;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  font: .85rem Arial, sans-serif;
+}
 
-      .hero {
-        padding: 60px 0 45px;
-      }
+footer {
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: .85rem;
+}
 
-      section {
-        padding: 42px 0;
-      }
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-      .combined-gallery img {
-        max-height: none;
-      }
-    }
-  </style>
+@media (max-width: 700px) {
+  .grid, .gallery { grid-template-columns: 1fr; }
+  .wide { grid-column: auto; }
+  .step { grid-template-columns: 1fr; gap: 6px; }
+  .hero { padding: 60px 0 45px; }
+  section { padding: 42px 0; }
+  .image-frame img { max-height: none; }
+  .nav-inner { align-items: flex-start; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="wrap nav-inner">
-      <div class="brand">Lhea Osorio · Portfolio</div>
-
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#project">Capstone</a>
-        <a href="#process">Process</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#education">Education</a>
-      </div>
+<nav aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#home">Lhea Osorio · Portfolio</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#project">Project</a>
+      <a href="#problem">Research</a>
+      <a href="#concept">Concept</a>
+      <a href="#parts">Onshape</a>
+      <a href="#app">App</a>
+      <a href="#materials">Materials</a>
+      <a href="#process">Process</a>
+      <a href="#education">Education</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- INTRODUCTION -->
-  <header class="hero">
-    <div class="wrap">
-      <div class="eyebrow">Mechanical Engineering Technology</div>
-
-      <h1>Lhea<br>Osorio</h1>
-
-      <div class="rule"></div>
-
-      <p>
-        Interested in mechanical design and engineering, with a hands-on
-        approach to learning, solving problems, and developing ideas.
-      </p>
-
-      <div class="meta">
-        Design · Prototyping · Problem Solving
-      </div>
+<header class="hero" id="home">
+  <div class="wrap">
+    <div class="eyebrow">Mechanical Engineering Technology</div>
+    <h1>Lhea<br>Osorio</h1>
+    <div class="rule"></div>
+    <p>
+      Interested in mechanical design and engineering, with a
+      hands-on approach to learning, solving problems, and
+      developing ideas.
+    </p>
+    <div class="actions">
+      <a class="button primary" href="#project">Explore the Study Box</a>
+      <a class="button" href="#parts">View Technical Drawings</a>
     </div>
-  </header>
+    <div class="meta">Design · CAD · Prototyping · Problem Solving</div>
+  </div>
+</header>
 
-  <!-- ABOUT ME -->
-  <section id="about">
-    <div class="wrap">
-      <div class="section-title">
-        <span class="number">01 /</span>
-        <h2>About Me</h2>
-      </div>
+<main>
 
-      <p>
-        I am currently pursuing a bachelor's degree in Mechanical
-        Engineering Technology in NJIT and continuing to develop my skills
-        in design and engineering. I enjoy learning new things,
-        working through challenges, and putting effort into completing
-        tasks carefully.
-      </p>
-
-      <p>
-        My high school engineering classes introduced me to design
-        projects, research, technical drawings, and prototyping.
-        Outside of school, I work at QuickChek, draw in my free time,
-        and work out when I can.
-      </p>
+<section id="about">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">01 /</span>
+      <h2>About Me</h2>
     </div>
-  </section>
+    <p>
+      I am currently pursuing a bachelor's degree in Mechanical
+      Engineering Technology at NJIT and continuing to develop
+      my skills in design and engineering. I enjoy learning new
+      things, working through challenges, and completing tasks carefully.
+    </p>
+    <p>
+      My high school engineering classes introduced me to design
+      projects, research, technical drawings, and prototyping.
+      Outside of school, I work at QuickChek, draw in my free time,
+      and work out when I can.
+    </p>
+  </div>
+</section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="wrap">
-      <div class="section-title">
-        <span class="number">02 /</span>
-        <h2>Skills &amp; Interests</h2>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <h3>Design &amp; Creativity</h3>
-          <p>
-            Mechanical design, concept sketches, technical drawing,
-            and CAD or 3D modeling.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Hands-on Engineering</h3>
-          <p>
-            Prototyping, material selection, and understanding how
-            parts fit together.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>STEM Foundations</h3>
-          <p>
-            Programming, mathematics, physics, research,
-            and problem-solving.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Teamwork</h3>
-          <p>
-            Communication, collaboration, accepting feedback,
-            and adapting ideas.
-          </p>
-        </article>
-      </div>
-
-      <div class="callout">
-        <p>
-          These are areas I have explored or am continuing to develop,
-          rather than a claim of professional-level proficiency.
-        </p>
-      </div>
-
-      <h3>Software</h3>
-
-      <p>
-        I have more experience using Onshape, with some experience
-        in Fusion 360 and continued learning in CAD.
-      </p>
+<section id="skills">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">02 /</span>
+      <h2>Skills &amp; Interests</h2>
     </div>
-  </section>
-
-  <!-- STUDY BOX CAPSTONE -->
-  <section id="project">
-    <div class="wrap">
-      <div class="section-title">
-        <span class="number">03 /</span>
-        <h2>The Study Box</h2>
-      </div>
-
-      <div class="meta">
-        High School Engineering Capstone · Team Project
-      </div>
-
-      <p>
-        The Study Box was a year-long senior capstone project created
-        with two other members. Our team explored
-        how phone distractions and difficulty managing study time can
-        affect students. We developed a concept for a lockable phone
-        box designed to encourage more focused study sessions and
-        healthier study habits.
-      </p>
-
-      <div class="grid">
-        <article class="card">
-          <h3>The Problem</h3>
-          <p>
-            Phones and other distractions can make it difficult to
-            begin studying, manage time, and stay focused on schoolwork.
-            Our project explored ways to support time management,
-            sustained attention, and self-control.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>The Proposed Solution</h3>
-          <p>
-            A lockable phone compartment paired with a visual timer.
-            The proposed Pomodoro-style routine uses 25 minutes of
-            studying followed by a 5-minute break.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Research &amp; Market Analysis</h3>
-          <p>
-            We researched study habits and compared existing desk lamps
-            and study products. Our comparison focused on combining a
-            visual timer, lockable phone storage, and monitoring
-            features in one concept.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Design &amp; CAD</h3>
-          <p>
-            Our team developed concept sketches and technical drawings
-            for the enclosure, door, camera housing, and latch system.
-            We used design comparisons and feedback to refine the concept.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Materials &amp; Components</h3>
-          <p>
-            Our research considered polycarbonate for the enclosure
-            and stainless steel for selected hardware. The proposed
-            electronic system included a Raspberry Pi 5, screen,
-            buttons, lights, camera, and electronic latch.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Companion App Concept</h3>
-          <p>
-            The proposed app included customizable study sessions,
-            progress information, and an unlock-code concept.
-            These features were part of the design plan and are not
-            a claim that every feature was fully implemented.
-          </p>
-        </article>
-      </div>
-
-      <div class="callout">
-        <p>
-          <strong>My contribution:</strong>
-          I contributed concept art and helped create a physical
-          prototype as part of the team. The research, feature planning,
-          and proposed electronic system were developed collaboratively.
-        </p>
-      </div>
-
-      <div class="callout">
-        <p>
-          <strong>Project focus:</strong>
-          The Study Box combined research, design, technical drawing,
-          material considerations, and prototyping to explore a
-          practical response to study-time distractions.
-        </p>
-      </div>
+    <div class="grid">
+      <article class="card">
+        <h3>Design &amp; Creativity</h3>
+        <p>Concept sketches, technical drawings, mechanical design, and CAD modeling.</p>
+      </article>
+      <article class="card">
+        <h3>Hands-on Engineering</h3>
+        <p>Prototyping, material selection, and understanding how parts fit together.</p>
+      </article>
+      <article class="card">
+        <h3>STEM Foundations</h3>
+        <p>Programming, mathematics, physics, research, and problem-solving.</p>
+      </article>
+      <article class="card">
+        <h3>Teamwork</h3>
+        <p>Communication, collaboration, accepting feedback, and adapting ideas.</p>
+      </article>
     </div>
-  </section>
-
-  <!-- ENGINEERING PROCESS -->
-  <section id="process">
-    <div class="wrap">
-      <div class="section-title">
-        <span class="number">04 /</span>
-        <h2>Engineering Process</h2>
-      </div>
-
-      <p>
-        Our capstone followed an engineering design process, moving
-        from researching a problem to developing a concept, planning
-        its components, and considering how the design could be improved.
-      </p>
-
-      <div class="step">
-        <div class="meta">01 · Identify</div>
-        <h3>Understanding the Problem</h3>
-        <p>
-          We focused on phone distractions, procrastination, and
-          difficulties managing study time. Our goal was to explore
-          how a product could help students develop more consistent
-          study habits.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="meta">02 · Research</div>
-        <h3>Studying Habits &amp; Behavior</h3>
-        <p>
-          We researched executive-function skills, including task
-          initiation, time management, sustained attention, and
-          self-control. Further more we conducted two surveys (one for adult and one for childern/teenagers) and to ensure at least more then 100 submitted a responce. Our group used social media such as reddit to make our surveys avaliable, and in the end of that we gathered
-          107 students and 117 adults perspectives.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="meta">03 · Compare</div>
-        <h3>Market Research</h3>
-        <p>
-          We examined similar study products and compared their
-          features with our concept. This helped us explore the value
-          of combining a visual timer, a lockable phone compartment,
-          and monitoring features.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="meta">04 · Design</div>
-        <h3>Concept Art &amp; Design Selection</h3>
-        <p>
-          Team members created sketches, which we compared using a
-          design matrix. We combined ideas and refined the concept.
-          I contributed concept art during this stage.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="meta">05 · CAD</div>
-        <h3>Technical Drawings</h3>
-        <p>
-          We developed technical drawings and an exploded view to
-          communicate how the enclosure, door, camera housing, and
-          latch components could fit together. These drawings helped
-          explain the design beyond the initial sketch.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="meta">06 · Materials</div>
-        <h3>Choosing Suitable Materials</h3>
-        <p>
-          Our material research considered polycarbonate for the
-          enclosure and stainless steel for selected hardware,
-          such as springs and hinges. We considered durability,
-          heat resistance, cost, and repeated use when comparing options.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="meta">07 · Components</div>
-        <h3>Planning the Electronic System</h3>
-        <p>
-          The proposed system included a Raspberry Pi 5, a screen,
-          status lights, buttons, a camera, and an electronic latch.
-          The concept also explored a companion app and study-session
-          controls.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="meta">08 · Prototype</div>
-        <h3>Developing a Physical Model</h3>
-        <p>
-          We worked on a physical prototype and considered component
-          placement, dimensions, openings, fit, and how different parts
-          could work together. This helped connect our drawings with
-          the practical challenges of building a product.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="meta">09 · Evaluate</div>
-        <h3>Testing Considerations</h3>
-        <p>
-          Our project planning identified areas that would need
-          evaluation, including heat management, camera coverage,
-          latch reliability, and durability. These are testing
-          considerations and should not be read as proof that every
-          test was completed.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="meta">10 · Improve</div>
-        <h3>Feedback &amp; Refinement</h3>
-        <p>
-          We presented our findings and considered feedback. One
-          design idea was to explore a fisheye camera lens instead
-          of a rectilinear lens to capture a wider field of view.
-          This process showed me why engineers need to communicate,
-          review, and adapt ideas.
-        </p>
-      </div>
-
-      <div class="callout">
-        <p>
-          <strong>What I learned:</strong>
-          Engineering involves more than coming up with an idea.
-          It also requires research, careful design decisions,
-          collaboration, and learning from feedback.
-        </p>
-      </div>
+    <div class="callout">
+      <p>These are areas I have explored or am continuing to develop, rather than claims of professional-level proficiency.</p>
     </div>
-  </section>
+    <h3>Software</h3>
+    <p>I have more experience using Onshape, with some experience in Fusion 360 and continued learning in CAD.</p>
+  </div>
+</section>
 
-  <!-- COMBINED IMAGE AND DESCRIPTIONS -->
-  <section id="gallery">
-    <div class="wrap">
-      <div class="section-title">
-        <span class="number">05 /</span>
-        <h2>Study Box Project Gallery</h2>
-      </div>
+<section id="project">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">03 /</span>
+      <h2>The Study Box</h2>
+    </div>
+    <div class="meta">High School Engineering Capstone · Team Project</div>
+    <p>
+      The Study Box was a year-long senior capstone project created
+      by our team. We explored difficulties students can experience
+      when trying to study while managing phone distractions.
+      Our concept was a lockable phone box designed to encourage
+      focused study sessions and more structured study habits.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h3>The Challenge</h3>
+        <p>Explore how distractions and difficulty managing study time can interfere with a student's ability to focus on schoolwork.</p>
+      </article>
+      <article class="card">
+        <h3>Our Proposed Solution</h3>
+        <p>A lockable phone compartment paired with a visual timer and a proposed study-session routine.</p>
+      </article>
+      <article class="card">
+        <h3>Team Collaboration</h3>
+        <p>We researched the problem, compared ideas, reviewed concept sketches, and considered feedback while developing our design.</p>
+      </article>
+      <article class="card">
+        <h3>My Contribution</h3>
+        <p>I contributed concept art and helped create a physical prototype as part of the team.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-      <p>
-        A visual overview of the Study Box capstone project,
-        from the original concept to the technical design and
-        app concepts.
-      </p>
+<section id="problem">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">04 /</span>
+      <h2>Step One — Research the Problem</h2>
+    </div>
+    <p>
+      Our team began by researching difficulties children and
+      teenagers can experience when studying. We focused on phone
+      distractions, procrastination, task initiation, time management,
+      and maintaining attention.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h3>Understanding Study Habits</h3>
+        <p>We explored how distractions can make it harder to begin a task, manage study time, and maintain focus.</p>
+      </article>
+      <article class="card">
+        <h3>Survey Research</h3>
+        <p>Our group created separate surveys for adults and children or teenagers to gather perspectives on study habits.</p>
+      </article>
+      <article class="card">
+        <h3>Survey Responses</h3>
+        <p>We gathered 107 student responses and 117 adult responses through our survey outreach.</p>
+      </article>
+      <article class="card">
+        <h3>Existing Products</h3>
+        <p>We researched existing study products to compare their features and explore what our concept might combine in one design.</p>
+      </article>
+    </div>
+    <div class="callout">
+      <p><strong>Design question:</strong> How might we help students set aside phone distractions and follow a planned study session?</p>
+    </div>
+  </div>
+</section>
 
-      <div class="image-note">
-        Upload the combined JPG into an <strong>images</strong>
-        folder in the same GitHub repository as this index.html file.
-        The filename must match the code below.
-      </div>
+<section id="concept">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">05 /</span>
+      <h2>Step Two — Final Concept &amp; Features</h2>
+    </div>
+    <p>
+      The concept sketch communicates the proposed overall appearance
+      of the Study Box and the features our team considered during
+      the design process.
+    </p>
 
-      <!-- COMBINED PROJECT IMAGE -->
-      <figure class="combined-gallery">
+    <figure class="image-card">
+      <div class="image-frame">
         <img
-          src="./images/study_box_images_labeled.jpg"
-          alt="Combined Study Box project pictures with the concept sketch highlighted, technical drawings, exploded view, and app concepts"
+          src="./images/study-box-final-concept.jpg"
+          alt="Final concept sketch of the Study Box"
           loading="lazy"
-        >
+          onerror="this.style.display='none';this.parentElement.innerHTML='<p style=&quot;color:#303636;padding:20px;text-align:center&quot;>Add your final sketch as images/study-box-final-concept.jpg</p>'">
+      </div>
+      <figcaption>
+        <h3>Final Concept Sketch</h3>
+        <p>Replace this image with your final annotated concept sketch. The drawing should show the overall product and its key features.</p>
+      </figcaption>
+    </figure>
 
+    <div class="grid" style="margin-top:18px">
+      <article class="card">
+        <h3>Lockable Phone Compartment</h3>
+        <p>Provides a dedicated place to store a phone during a planned study session.</p>
+      </article>
+      <article class="card">
+        <h3>Visual Timer</h3>
+        <p>A proposed timer helps users see their study interval and planned break.</p>
+      </article>
+      <article class="card">
+        <h3>Camera Housing</h3>
+        <p>Holds the proposed camera component and provides a defined position for the camera's viewing area.</p>
+      </article>
+      <article class="card">
+        <h3>Ventilation &amp; Electronics</h3>
+        <p>The design considered ventilation and space for electronic components. These features required appropriate design and testing.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="parts">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">06 /</span>
+      <h2>Step Three — Onshape Parts</h2>
+    </div>
+    <p>
+      Our Onshape technical drawings show individual components
+      through dimensioned views and isometric views. They help
+      communicate the geometry, openings, dimensions, and intended
+      relationships between parts.
+    </p>
+
+    <div class="gallery">
+
+      <figure class="image-card">
+        <div class="image-frame">
+          <img src="./images/study-box-door.jpg"
+               alt="Onshape technical drawing of the Study Box door"
+               loading="lazy">
+        </div>
         <figcaption>
-          <h3>Study Box — Complete Design Overview</h3>
-          <p>
-            A collection of concept artwork and engineering visuals
-            showing how our team developed the Study Box idea.
-          </p>
+          <h3>01 / Door</h3>
+          <p>The door drawing shows the panel's dimensions, thickness, and handle placement. The handle provides a point to grip when opening or closing the compartment.</p>
         </figcaption>
       </figure>
 
-      <!-- DESCRIPTIONS DIRECTLY BELOW THE IMAGE -->
-      <div class="gallery-descriptions">
+      <figure class="image-card">
+        <div class="image-frame">
+          <img src="./images/study-box-camera-case.jpg"
+               alt="Onshape technical drawing of the camera case"
+               loading="lazy">
+        </div>
+        <figcaption>
+          <h3>02 / Camera Case</h3>
+          <p>The camera case provides a housing for the proposed camera. Its openings and dimensions help communicate how the camera could be positioned within the design.</p>
+        </figcaption>
+      </figure>
 
-        <article class="card">
-          <h3>01 / Final Concept Sketch</h3>
-          <p>
-            <strong>Highlighted in the combined image.</strong>
-            The annotated concept sketch shows the proposed overall
-            appearance of the Study Box and design features such as
-            the phone compartment, timer, camera, and ventilation.
-            This sketch helped communicate our team's design idea.
-          </p>
-        </article>
+      <figure class="image-card wide">
+        <div class="image-frame">
+          <img src="./images/study-box-enclosure-drawings.jpg"
+               alt="Onshape drawings of the Study Box enclosure pieces"
+               loading="lazy">
+        </div>
+        <figcaption>
+          <h3>03 / Front &amp; Back Enclosure Pieces</h3>
+          <p>These drawings show enclosure components from multiple views. The openings and mounting details help explain how the design could accommodate the interface and internal components.</p>
+        </figcaption>
+      </figure>
 
-        <article class="card">
-          <h3>02 / Technical Drawings</h3>
-          <p>
-            The technical drawings created with Onshape show individual
-            parts of the design, including the case, door, camera
-            housing, and latch system. These drawings help explain
-            the shape and arrangement of the components.
-          </p>
-        </article>
+      <figure class="image-card wide">
+        <div class="image-frame">
+          <img src="./images/study-box-push-latch.jpg"
+               alt="Onshape technical drawing of the push latch"
+               loading="lazy">
+        </div>
+        <figcaption>
+          <h3>04 / Push-Latch Mechanism</h3>
+          <p>The push latch is intended to control the camera case's movement. Pressing the mechanism pushes the case down; pressing it again releases it so the case can return upward. This describes the intended operation of the design.</p>
+        </figcaption>
+      </figure>
 
-        <article class="card">
-          <h3>03 / Exploded View</h3>
-          <p>
-            The exploded view separates the assembly into individual
-            components to show how the parts are arranged and how
-            they could fit together in the proposed product.
-          </p>
-        </article>
+      <figure class="image-card wide">
+        <div class="image-frame">
+          <img src="./images/study-box-exploded-view.jpg"
+               alt="Exploded view of the Study Box components"
+               loading="lazy">
+        </div>
+        <figcaption>
+          <h3>05 / Exploded View</h3>
+          <p>The exploded view separates components visually to show their arrangement and how they could fit together during assembly.</p>
+        </figcaption>
+      </figure>
 
-        <article class="card">
-          <h3>04 / App Concepts</h3>
-          <p>
-            The app visuals illustrate the planned digital features,
-            including study-session timing, progress information,
-            camera-monitoring concepts, and an unlock-code system.
-            These images represent the proposed app design.
-          </p>
-        </article>
+    </div>
 
-        <article class="card">
-          <h3>05 / Design Development</h3>
-          <p>
-            Together, these visuals document the progression from
-            concept art to more detailed engineering drawings and
-            supporting digital concepts during our capstone project.
-          </p>
-        </article>
+    <div class="callout">
+      <p><strong>Why technical drawings matter:</strong> A sketch communicates the idea, while dimensioned drawings provide information about geometry, size, and component placement.</p>
+    </div>
+  </div>
+</section>
 
+<section id="app">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">07 /</span>
+      <h2>Step Four — Companion App Concept</h2>
+    </div>
+    <p>
+      Our app concept was planned as a companion to the Study Box.
+      The proposed interface explored study-session controls,
+      progress information, and a way to coordinate with the physical
+      product.
+    </p>
+
+    <figure class="image-card">
+      <div class="image-frame">
+        <img src="./images/study-box-app-concept.jpg"
+             alt="AI-generated visual concept for the Study Box companion app"
+             loading="lazy">
+      </div>
+      <figcaption>
+        <h3>App Interface Concept</h3>
+        <p>This image represents a visual concept for the proposed app, not a functional application or a screenshot of implemented software.</p>
+      </figcaption>
+    </figure>
+
+    <div class="grid" style="margin-top:18px">
+      <article class="card">
+        <h3>Focus Session</h3>
+        <p>The proposed interface explored a 25-minute study period followed by a 5-minute break.</p>
+      </article>
+      <article class="card">
+        <h3>Progress View</h3>
+        <p>A planned feature for displaying study-session progress and helping users review their routine.</p>
+      </article>
+      <article class="card">
+        <h3>Connection &amp; Unlock Code</h3>
+        <p>The concept explored connecting the app to the device and using an unlock-code system after a session. These were proposed features.</p>
+      </article>
+      <article class="card">
+        <h3>Purpose of the App</h3>
+        <p>The goal was to support the physical product with a digital interface for managing study sessions.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="materials">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">08 /</span>
+      <h2>Step Five — Materials &amp; Components</h2>
+    </div>
+    <p>
+      Our material research considered durability, heat resistance,
+      cost, and repeated mechanical use. The following were
+      researched options for the proposed product.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Enclosure Materials</h3>
+        <p>Polycarbonate was considered for the enclosure because of its impact resistance and heat tolerance. ABS was also discussed as an alternative.</p>
+      </article>
+      <article class="card">
+        <h3>Moving Hardware</h3>
+        <p>Stainless steel was considered for selected hardware, such as springs and hinges, because of its corrosion resistance and suitability for repeated movement.</p>
+      </article>
+      <article class="card">
+        <h3>Electronic Components</h3>
+        <p>The proposed system included a Raspberry Pi 5, display, buttons, status lights, camera, and electronic latch.</p>
+      </article>
+      <article class="card">
+        <h3>Manufacturing</h3>
+        <p>Our team explored injection molding as a possible method for manufacturing the plastic enclosure, considering fit, openings, and tolerances.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">09 /</span>
+      <h2>Step Six — Prototype &amp; Improvement</h2>
+    </div>
+
+    <div class="step">
+      <div class="step-label">01 · Prototype</div>
+      <div>
+        <h3>Building a Physical Model</h3>
+        <p>Our team worked on a physical prototype and considered component placement, dimensions, openings, and how parts could fit together.</p>
       </div>
     </div>
-  </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="wrap">
-      <div class="section-title">
-        <span class="number">06 /</span>
-        <h2>Education &amp; Next Steps</h2>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <h3>Education</h3>
-          <p>
-            I took engineering classes throughout high school,
-            from freshman through senior year, alongside AP coursework.
-            I am now pursuing a bachelor's degree in Mechanical
-            Engineering Technology.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>What I Learned</h3>
-          <p>
-            The Study Box showed me how research, concept art,
-            technical drawings, material choices, teamwork, and
-            feedback contribute to the engineering design process.
-            It also helped me explore how an initial idea can develop
-            into a physical prototype.
-          </p>
-        </article>
+    <div class="step">
+      <div class="step-label">02 · Review</div>
+      <div>
+        <h3>Identifying Testing Needs</h3>
+        <p>Our planning identified areas requiring evaluation, including heat management, latch reliability, camera coverage, and durability. This does not mean every test was completed.</p>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrap">
-      © 2026 Lhea Osorio · Mechanical Engineering Technology
+    <div class="step">
+      <div class="step-label">03 · Feedback</div>
+      <div>
+        <h3>Considering Design Changes</h3>
+        <p>After reviewing the project, one idea was to explore a fisheye camera lens instead of a rectilinear lens to capture a wider field of view.</p>
+      </div>
     </div>
-  </footer>
+
+    <div class="callout">
+      <p><strong>What I learned:</strong> Engineering involves research, design decisions, technical communication, collaboration, and refining ideas in response to feedback.</p>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-title">
+      <span class="number">10 /</span>
+      <h2>Education &amp; Next Steps</h2>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Education</h3>
+        <p>I took engineering classes throughout high school, from freshman through senior year, alongside AP coursework. I am now pursuing a bachelor's degree in Mechanical Engineering Technology at NJIT.</p>
+      </article>
+      <article class="card">
+        <h3>Continuing to Learn</h3>
+        <p>I am continuing to build my CAD, technical drawing, prototyping, and engineering problem-solving skills, with a particular interest in mechanical design.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Lhea Osorio · Mechanical Engineering Technology</span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
 
 </body>
 </html>
